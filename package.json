@@ -1,11 +1,11 @@
 {
-  "name": "earthquakes",
+  "name": "earthquake",
   "version": "0.1.0",
   "author": "Darik Hart",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/neuralline/earthquakes.git"
+    "url": "https://github.com/neuralline/earthquake.git"
   },
   "dependencies": {
     "axios": "^0.19.0",
