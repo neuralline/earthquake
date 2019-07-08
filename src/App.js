@@ -1,26 +1,55 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react'
+import './App.css'
+import {connect} from 'react-redux'
+import Properties from './components/properties'
+import earthquakeAction from './store/actions/earthquake-action'
+import Filters from './components/filters'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  componentDidMount() {
+    this.props.earthquake()
+  }
+  render() {
+    const connectionError = this.props.connectionError
+      ? this.props.errorMessage
+      : this.props.loadingMessage
+
+    const results = this.props.data
+    const features = results.length ? (
+      results.map(feature => {
+        return <Properties feature={feature} key={feature.id} />
+      })
+    ) : (
+      <div className="col-md-4">{connectionError}</div>
+    )
+
+    return (
+      <div className="container">
+        <h1>Earthquake data</h1>
+        <Filters />
+        <div>
+          <ul className="features">{features}</ul>
+        </div>
+      </div>
+    )
+  }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    data: state.featured,
+    connectionError: state.connectionError,
+    errorMessage: state.errorMessage,
+    loadingMessage: state.loadingMessage
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    earthquake: data => dispatch(earthquakeAction(data))
+  }
+}
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App)

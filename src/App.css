@@ -1,33 +1,53 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Abel');
+
+body {
+  font-family: Abel, Arial, Helvetica, sans-serif;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+input {
+  color: #4b2354;
+  padding: 10px;
+  border-radius: 31px;
+  border: #4b2354 1px solid;
+  margin-top: 5px;
+  margin-right: 20px;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.container {
+  color: #4b2354;
+  background-color: #fff;
+  background: linear-gradient(#f8f8f8, #fff);
+  box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  margin: auto auto;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ul {
+  background-color: #fff;
+  background: linear-gradient(#f8f8f8, #fff);
+  box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+li {
+  border: #4b2354 1px solid;
+  margin-top: 5px;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  display: block;
+  box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
 }
