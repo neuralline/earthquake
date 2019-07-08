@@ -7,7 +7,7 @@ const initialState = {
   filters: {mag: '', magType: ''},
   connectionError: 0,
   errorMessage: 'Error connecting to server',
-  loadingMessage: 'Searching for available data...'
+  loadingMessage: 'Not found'
 }
 
 const rootReducer = (state = initialState, action) => {
